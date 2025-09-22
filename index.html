@@ -1,205 +1,173 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>مهام 15 يوم - اكملت 20 دقيقة من الكورس</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Fonts: Tajawal (جميل وعربي) -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Tajawal', 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            animation: bgMove 10s infinite alternate;
-        }
-        @keyframes bgMove {
-            0% {background-position: 0% 50%;}
-            100% {background-position: 100% 50%;}
-        }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: rgba(255,255,255,0.97);
-            border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(60,60,120,0.15);
-            padding: 32px 24px;
-            animation: fadeIn 1.5s;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(40px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-        h1 {
-            text-align: center;
-            color: #4f46e5;
-            margin-bottom: 24px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            font-size: 2.2em;
-        }
-        .device-info {
-            text-align: center;
-            margin-bottom: 18px;
-            font-size: 1.1em;
-            color: #6366f1;
-            background: #e0e7ff;
-            border-radius: 12px;
-            padding: 8px 0;
-            font-weight: 600;
-        }
-        .score-bar {
-            text-align: center;
-            margin-bottom: 18px;
-            font-size: 1.15em;
-            color: #10b981;
-            background: #fef9c3;
-            border-radius: 12px;
-            padding: 8px 0;
-            font-weight: 700;
-            box-shadow: 0 2px 8px #fde68a55;
-        }
-        .search-bar {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 22px;
-        }
-        .search-bar input {
-            width: 320px;
-            padding: 10px 16px;
-            border-radius: 10px;
-            border: 1px solid #a5b4fc;
-            font-size: 1em;
-            font-family: inherit;
-            outline: none;
-            transition: border 0.2s;
-        }
-        .search-bar input:focus {
-            border-color: #4f46e5;
-        }
-        .tables-wrapper {
-            display: flex;
-            gap: 32px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .task-table {
-            background: linear-gradient(120deg, #e0e7ff 0%, #f1f5f9 100%);
-            border-radius: 18px;
-            box-shadow: 0 2px 12px rgba(79,70,229,0.09);
-            padding: 18px 12px;
-            min-width: 340px;
-            flex: 1 1 340px;
-            margin-bottom: 18px;
-            animation: slideIn 0.7s;
-            border: 2px solid #a5b4fc;
-        }
-        @keyframes slideIn {
-            from {opacity: 0; transform: translateX(40px);}
-            to {opacity: 1; transform: translateX(0);}
-        }
-        .table-title {
-            text-align: center;
-            color: #2563eb;
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-bottom: 14px;
-            letter-spacing: 1px;
-        }
-        .table-title::after {
-            content: " 🎓✨";
-            font-size: 1.1em;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px 8px;
-            text-align: center;
-            font-size: 1.05em;
-        }
-        th {
-            background: #6366f1;
-            color: #fff;
-            font-weight: 700;
-            border-radius: 8px 8px 0 0;
-        }
-        tr {
-            background: #fff;
-            transition: background 0.2s;
-        }
-        tr:hover {
-            background: #e0e7ff;
-        }
-        td {
-            border-bottom: 1px solid #e5e7eb;
-        }
-        tr:last-child td {
-            border-bottom: none;
-        }
-        .task-checkbox {
-            width: 22px;
-            height: 22px;
-            accent-color: #4f46e5;
-            cursor: pointer;
-            transition: box-shadow 0.2s;
-        }
-        .task-checkbox:checked {
-            box-shadow: 0 0 0 3px #a5b4fc;
-        }
-        .task-done {
-            background: #bbf7d0 !important;
-            color: #065f46;
-            font-weight: bold;
-        }
-        .task-sticker {
-            font-size: 1.3em;
-            margin-left: 6px;
-        }
-        /* توزيع خاص للابتوب */
-        body.laptop .container {
-            max-width: 1400px;
-            padding: 48px 40px;
-            border-radius: 32px;
-            box-shadow: 0 12px 48px #6366f155;
-        }
-        body.laptop .tables-wrapper {
-            flex-direction: row;
-            gap: 48px;
-        }
-        body.laptop .task-table {
-            min-width: 480px;
-            padding: 28px 18px;
-            font-size: 1.15em;
-            border: 3px solid #6366f1;
-            background: linear-gradient(120deg, #e0e7ff 0%, #fef9c3 100%);
-        }
-        body.laptop h1 {
-            font-size: 2.8em;
-            color: #2563eb;
-        }
-        body.laptop .score-bar {
-            font-size: 1.25em;
-            background: #bbf7d0;
-            color: #2563eb;
-        }
-        @media (max-width: 900px) {
-            .tables-wrapper {
-                flex-direction: column;
-                gap: 18px;
-            }
-            .container {
-                padding: 18px 4px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>مهام 15 يوم - Zero Style</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Tajawal', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f6fc;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding-top: 40px;
+    }
+    .container {
+        width: 100%;
+        max-width: 1000px;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        padding: 30px;
+        animation: fadeIn 1s;
+    }
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    h1 {
+        text-align: center;
+        font-size: 2.5em;
+        color: #4f46e5;
+        margin-bottom: 20px;
+    }
+    .login-form {
+        max-width: 400px;
+        margin: 0 auto 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .login-form input {
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+    }
+    .login-form button {
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        background-color: #4f46e5;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .login-form button:hover {
+        background-color: #6366f1;
+    }
+    .task-section {
+        display: none;
+    }
+    .device-info {
+        text-align: center;
+        margin-bottom: 15px;
+        color: #6366f1;
+        font-weight: 600;
+    }
+    .score-bar {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #10b981;
+        background: #fef9c3;
+        border-radius: 12px;
+        padding: 10px;
+        box-shadow: 0 2px 8px #fde68a55;
+    }
+    .search-bar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .search-bar input {
+        width: 300px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #a5b4fc;
+        outline: none;
+    }
+    .tables-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+    }
+    .task-table {
+        background: #f0f4ff;
+        border-radius: 18px;
+        padding: 20px;
+        min-width: 320px;
+        flex: 1 1 320px;
+        border: 2px solid #a5b4fc;
+    }
+    .table-title {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.3em;
+        color: #2563eb;
+        margin-bottom: 12px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        text-align: center;
+        font-size: 1em;
+    }
+    th {
+        background: #6366f1;
+        color: white;
+        font-weight: 700;
+    }
+    tr {
+        background: #fff;
+        transition: background 0.2s;
+    }
+    tr:hover {
+        background: #e0e7ff;
+    }
+    td {
+        border-bottom: 1px solid #e5e7eb;
+    }
+    tr:last-child td {
+        border-bottom: none;
+    }
+    .task-checkbox {
+        width: 22px;
+        height: 22px;
+        accent-color: #4f46e5;
+        cursor: pointer;
+    }
+    .task-done {
+        background: #bbf7d0 !important;
+        color: #065f46;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>مهام 15 يوم <span class="task-sticker">🔥</span></h1>
+<div class="container">
+
+    <h1>مهام 15 يوم 🔥</h1>
+
+    <!-- واجهة تسجيل الدخول -->
+    <div class="login-form" id="loginForm">
+        <input type="email" id="emailInput" placeholder="أدخل بريدك الإلكتروني">
+        <button id="loginBtn">تسجيل الدخول</button>
+    </div>
+
+    <!-- قسم المهام -->
+    <div class="task-section" id="taskSection">
         <div class="device-info" id="deviceInfo"></div>
         <div class="score-bar" id="scoreBar">نسبة الإنجاز: 0%</div>
         <div class="search-bar">
@@ -210,11 +178,7 @@
                 <div class="table-title">حيدر وليد</div>
                 <table>
                     <thead>
-                        <tr>
-                            <th>التاريخ</th>
-                            <th>المهمة</th>
-                            <th>تم الإنجاز</th>
-                        </tr>
+                        <tr><th>التاريخ</th><th>المهمة</th><th>تم الإنجاز</th></tr>
                     </thead>
                     <tbody id="tbodyHaider"></tbody>
                 </table>
@@ -223,114 +187,119 @@
                 <div class="table-title">محمدباقر حسن</div>
                 <table>
                     <thead>
-                        <tr>
-                            <th>التاريخ</th>
-                            <th>المهمة</th>
-                            <th>تم الإنجاز</th>
-                        </tr>
+                        <tr><th>التاريخ</th><th>المهمة</th><th>تم الإنجاز</th></tr>
                     </thead>
                     <tbody id="tbodyMohammed"></tbody>
                 </table>
             </div>
         </div>
     </div>
-    <script>
-        // كشف نوع الجهاز وتغيير توزيع الموقع
-        function detectDevice() {
-            const ua = navigator.userAgent;
-            if (/Mobi|Android|iPhone|iPad|iPod/i.test(ua)) {
-                document.body.classList.remove('laptop');
-                return "أنت تستخدم جهاز موبايل 📱";
-            } else {
-                document.body.classList.add('laptop');
-                return "أنت تستخدم لابتوب أو كمبيوتر 💻";
-            }
+
+</div>
+
+<script>
+    // كشف نوع الجهاز
+    function detectDevice() {
+        const ua = navigator.userAgent;
+        if (/Mobi|Android|iPhone|iPad|iPod/i.test(ua)) {
+            document.body.classList.remove('laptop');
+            return "أنت تستخدم جهاز موبايل 📱";
+        } else {
+            document.body.classList.add('laptop');
+            return "أنت تستخدم لابتوب أو كمبيوتر 💻";
         }
-        document.getElementById('deviceInfo').textContent = detectDevice();
+    }
 
-        // إعداد التواريخ والمهام
-        const startDay = 22;
-        const month = 9;
-        const year = new Date().getFullYear();
-        const tasks = [];
-        for(let i=0; i<15; i++) {
-            let title = "";
-            if(i === 14) {
-                title = "آخر 20 دقيقة من الكورس 🎉";
-            } else {
-                const arabicNumbers = ["أول", "ثاني", "ثالث", "رابع", "خامس", "سادس", "سابع", "ثامن", "تاسع", "عاشر", "حادي عشر", "ثاني عشر", "ثالث عشر", "رابع عشر"];
-                title = `${arabicNumbers[i]} 20 دقيقة من كورس الـ 4 ساعات 🚀`;
-            }
-            tasks.push({
-                date: `${year}/${month < 10 ? '0'+month : month}/${(startDay + i) < 10 ? '0'+(startDay + i) : (startDay + i)}`,
-                title: title
-            });
-        }
+    // التواريخ والمهام
+    const startDay = 22;
+    const month = 9;
+    const year = new Date().getFullYear();
+    const tasks = [];
+    for(let i=0;i<15;i++){
+        const arabicNumbers = ["أول","ثاني","ثالث","رابع","خامس","سادس","سابع","ثامن","تاسع","عاشر","حادي عشر","ثاني عشر","ثالث عشر","رابع عشر"];
+        let title = i===14?"آخر 20 دقيقة من الكورس 🎉":`${arabicNumbers[i]} 20 دقيقة من كورس الـ 4 ساعات 🚀`;
+        tasks.push({date:`${year}/${month<10?'0'+month:month}/${(startDay+i)<10?'0'+(startDay+i):(startDay+i)}`, title});
+    }
 
-        // حفظ حالة المهام لكل شخص
-        let checkedHaider = Array(15).fill(false);
-        let checkedMohammed = Array(15).fill(false);
+    // حالة المهام
+    let checkedHaider = Array(15).fill(false);
+    let checkedMohammed = Array(15).fill(false);
 
-        // عرض المهام في جدولين
-        function renderTasks(person, tbodyId, filter="") {
-            const tbody = document.getElementById(tbodyId);
-            tbody.innerHTML = "";
-            const checkedArr = person === "haider" ? checkedHaider : checkedMohammed;
-            tasks.forEach((task, idx) => {
-                if (
-                    task.date.includes(filter) ||
-                    task.title.includes(filter)
-                ) {
-                    const checked = checkedArr[idx];
-                    const sticker = checked ? "✅" : "⏳";
-                    const tr = document.createElement('tr');
-                    tr.className = checked ? "task-done" : "";
-                    tr.innerHTML = `
-                        <td>${task.date}</td>
-                        <td>${task.title} <span class="task-sticker">${sticker}</span></td>
-                        <td>
-                            <input type="checkbox" class="task-checkbox" id="${person}-task${idx}" ${checked ? "checked" : ""}>
-                        </td>
-                    `;
-                    tbody.appendChild(tr);
-                }
-            });
-        }
-        renderTasks("haider", "tbodyHaider");
-        renderTasks("mohammed", "tbodyMohammed");
+    // حفظ واسترجاع التقدم باستخدام البريد
+    function saveProgress(email){
+        localStorage.setItem(`progress_${email}_haider`, JSON.stringify(checkedHaider));
+        localStorage.setItem(`progress_${email}_mohammed`, JSON.stringify(checkedMohammed));
+    }
 
-        // البحث
-        document.getElementById('searchInput').addEventListener('input', function() {
-            const val = this.value.trim();
-            renderTasks("haider", "tbodyHaider", val);
-            renderTasks("mohammed", "tbodyMohammed", val);
-        });
+    function loadProgress(email){
+        const haiderData = JSON.parse(localStorage.getItem(`progress_${email}_haider`));
+        const moData = JSON.parse(localStorage.getItem(`progress_${email}_mohammed`));
+        if(haiderData) checkedHaider = haiderData;
+        if(moData) checkedMohammed = moData;
+    }
 
-        // حساب نسبة الإنجاز
-        function updateScore() {
-            const total = tasks.length * 2;
-            const done = checkedHaider.filter(Boolean).length + checkedMohammed.filter(Boolean).length;
-            const percent = Math.round((done / total) * 100);
-            document.getElementById('scoreBar').textContent = `نسبة الإنجاز: ${percent}% ${percent === 100 ? "🏆" : percent >= 50 ? "👏" : "💪"}`;
-        }
-        updateScore();
-
-        // عند تغيير حالة المهمة
-        document.addEventListener('change', function(e) {
-            if(e.target.classList.contains('task-checkbox')) {
-                const id = e.target.id;
-                const [person, idxStr] = id.split('-task');
-                const idx = parseInt(idxStr);
-                if(person === "haider") {
-                    checkedHaider[idx] = e.target.checked;
-                    renderTasks("haider", "tbodyHaider", document.getElementById('searchInput').value.trim());
-                } else {
-                    checkedMohammed[idx] = e.target.checked;
-                    renderTasks("mohammed", "tbodyMohammed", document.getElementById('searchInput').value.trim());
-                }
-                updateScore();
+    function renderTasks(person, tbodyId, filter=""){
+        const tbody = document.getElementById(tbodyId);
+        tbody.innerHTML = "";
+        const checkedArr = person==="haider"?checkedHaider:checkedMohammed;
+        tasks.forEach((task,idx)=>{
+            if(task.date.includes(filter)||task.title.includes(filter)){
+                const checked = checkedArr[idx];
+                const sticker = checked?"✅":"⏳";
+                const tr = document.createElement('tr');
+                tr.className = checked?"task-done":"";
+                tr.innerHTML = `
+                    <td>${task.date}</td>
+                    <td>${task.title} <span>${sticker}</span></td>
+                    <td><input type="checkbox" class="task-checkbox" id="${person}-task${idx}" ${checked?"checked":""}></td>
+                `;
+                tbody.appendChild(tr);
             }
         });
-    </script>
+    }
+
+    function updateScore(){
+        const total = tasks.length*2;
+        const done = checkedHaider.filter(Boolean).length+checkedMohammed.filter(Boolean).length;
+        const percent = Math.round((done/total)*100);
+        document.getElementById('scoreBar').textContent=`نسبة الإنجاز: ${percent}% ${percent===100?"🏆":percent>=50?"👏":"💪"}`;
+    }
+
+    document.addEventListener('change',function(e){
+        if(e.target.classList.contains('task-checkbox')){
+            const [person, idxStr] = e.target.id.split('-task');
+            const idx = parseInt(idxStr);
+            if(person==="haider") checkedHaider[idx]=e.target.checked;
+            else checkedMohammed[idx]=e.target.checked;
+            renderTasks("haider","tbodyHaider",document.getElementById('searchInput').value.trim());
+            renderTasks("mohammed","tbodyMohammed",document.getElementById('searchInput').value.trim());
+            updateScore();
+            saveProgress(currentEmail);
+        }
+    });
+
+    document.getElementById('searchInput').addEventListener('input', function(){
+        const val=this.value.trim();
+        renderTasks("haider","tbodyHaider",val);
+        renderTasks("mohammed","tbodyMohammed",val);
+    });
+
+    let currentEmail = null;
+    document.getElementById('loginBtn').addEventListener('click',()=>{
+        const email = document.getElementById('emailInput').value.trim();
+        if(email){
+            currentEmail = email;
+            loadProgress(email);
+            renderTasks("haider","tbodyHaider");
+            renderTasks("mohammed","tbodyMohammed");
+            updateScore();
+            document.getElementById('loginForm').style.display='none';
+            document.getElementById('taskSection').style.display='block';
+            document.getElementById('deviceInfo').textContent = detectDevice();
+        } else {
+            alert("يرجى إدخال بريد إلكتروني صالح.");
+        }
+    });
+</script>
 </body>
 </html>
